@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\HospitalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::group(['prefix' => 'registration','namespace' => 'API'],function(){
+    // address helper
+    Route::get('/address',[AddressController::class,'getAddressFields']);
+
+    Route::post('/hospital/store',[HospitalController::class,'store']);
+    Route::post('/doctor/store',[DoctorController::class,'store']);
+    Route::post('/clinic/store',[ClinicController::class,'store']);
 });
 
 // Route::post('/hospital',[])
