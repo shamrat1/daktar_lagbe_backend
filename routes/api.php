@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\API\DepartmentController;
 use App\Http\Controllers\API\HospitalController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\AddressController;
 use App\Models\Department;
+use App\Http\Controllers\API\RegistrationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -26,6 +27,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'registration','namespace' => 'API'],function(){
     // address helper
     Route::get('/address',[AddressController::class,'getAddressFields']);
+
+    Route::get('/helper/{type}', [RegistrationController::class, 'helper']);
 
     Route::post('/hospital/store',[HospitalController::class,'store']);
 
@@ -37,19 +40,16 @@ Route::group(['prefix' => 'registration','namespace' => 'API'],function(){
     Route::post('/clinic/store',[ClinicController::class,'store']);
 });
 
-Route::group(['prefix' => 'departments'],function(){
-    Route::post('/store',[DepartmentController::class,'store']);
-    Route::get('/',[DepartmentController::class,'index']);
-});
+Route::group(['namespace'=>'API'],function(){
 
-Route::group(['prefix' => 'designations'],function(){
-    Route::post('/store',[DesginationController::class,'store']);
-    Route::get('/',[DesginationController::class,'index']);
-});
+    Route::get('/departments',[DepartmentController::class,'index']);
+    Route::get('/departments/store',[DepartmentController::class,'store']);
 
-Route::group(['prefix' => 'expertises'],function(){
-    Route::post('/store',[ExpertiseController::class,'store']);
-    Route::get('/',[ExpertiseController::class,'index']);
+    Route::get('/designations', [DesignationController::class, 'index']);
+    Route::get('/designations/store', [DesignationController::class, 'store']);
+
+    Route::get('/expertises', [DesignationController::class, 'index']);
+    Route::get('/designations/store', [DesignationController::class, 'store']);
 });
 
 // Route::post('/hospital',[])
