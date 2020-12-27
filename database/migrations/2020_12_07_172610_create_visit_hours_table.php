@@ -15,6 +15,9 @@ class CreateVisitHoursTable extends Migration
     {
         Schema::create('visit_hours', function (Blueprint $table) {
             $table->id();
+            $table->string('days');
+            $table->string('from');
+            $table->string('to');
             $table->timestamps();
         });
     }

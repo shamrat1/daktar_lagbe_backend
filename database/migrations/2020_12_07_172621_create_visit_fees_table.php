@@ -15,6 +15,8 @@ class CreateVisitFeesTable extends Migration
     {
         Schema::create('visit_fees', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->string('fee');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class DoctorStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,21 @@ class DoctorStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'division_id' => 'required',
+            'city_id' => 'required',
+            'address_line_1' => 'required|string',
+            'address_line_2' => 'nullable|string',
+            'name' => 'required|string|min:4',
+            'name_bn' => 'nullable|string|min:4',
+            'bmdc_code' => 'nullable|string|unique:doctors',
+            'department_id' => 'required|numeric',
+            'expertise_id' => 'required|numeric',
+            'designation_id' => 'required|numeric',
+            'extra_fee' => 'nullable|numeric',
+            'phone' => 'nullable|numeric|min:11',
+            'note' => 'nullable|numeric|min:11',
+            'visiting_hours' => 'required',
+            'visiting_fees' => 'required'
         ];
     }
 

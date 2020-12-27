@@ -16,6 +16,7 @@ class CreateSurgeriesTable extends Migration
         Schema::create('surgeries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('name_bn')->nullable();
             $table->string('price')->nullable();
             $table->string('extra')->nullable();
             $table->text('features')->nullable();

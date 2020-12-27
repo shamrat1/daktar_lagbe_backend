@@ -13,9 +13,10 @@ class CreateTestFaciltiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('test_facilties', function (Blueprint $table) {
+        Schema::create('test_facilities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('name_bn')->nullable();
             $table->string('price')->nullable();
             $table->string('extra')->nullable();
             $table->text('features')->nullable();
@@ -30,6 +31,6 @@ class CreateTestFaciltiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test_facilties');
+        Schema::dropIfExists('test_facilities');
     }
 }

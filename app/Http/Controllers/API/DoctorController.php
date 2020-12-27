@@ -10,9 +10,15 @@ use App\Models\Department;
 use App\Models\Designation;
 use App\Models\Doctor;
 use App\Models\Expertise;
+use App\Models\VisitFee;
+use App\Models\VisitHour;
+use App\Traits\JsonResponse;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class DoctorController extends Controller
 {
+    use JsonResponse;
     public function getEssentials()
     {
         $departments = Department::get();
@@ -31,13 +37,26 @@ class DoctorController extends Controller
     public function store(DoctorStoreRequest $request)
     {
         $data = $request->validated();
-        $address = Address::create([
-            'division_id' => $request->division_id,
-            'city_id' => $request->city_id,
-            'address_line_1' => $request->address_line_1,
-            'address_line_2' => $request->address_line_2,
-        ]);
-        $data->merge('address_id',$address->id);
-        $doctor = Doctor::create();
+        try{
+            DB::beginTransaction();
+            $address = Address::create([
+                'division_id' => $request->division_id,
+                'city_id' => $request->city_id,
+                'address_line_1' => $request->address_line_1,
+                'address_line_2' => $request->address_line_2,
+            ]);
+            $data['address_id'] = $address->id;
+            $doctor = Doctor::create($data);
+            $hours = explode(',',$request->visiting_hours);
+            $fees = explode(',',$request->visiting_fees);
+            $doctor->visit_hours()->sync($hours);
+            $doctor->visit_fees()->sync($fees);
+            DB::commit();
+            return $this->responseBody("success","Doctor Created SuccessFully",$doctor);
+        }catch(Exception $e){
+            DB::rollBack();
+            return $this->responseBody("error","Doctor creation failed",$e);
+        }
+        
     }
 }

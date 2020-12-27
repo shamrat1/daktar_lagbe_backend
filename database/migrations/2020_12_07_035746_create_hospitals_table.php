@@ -18,13 +18,14 @@ class CreateHospitalsTable extends Migration
             $table->string('name')->nullable();
             $table->string('name_bn')->nullable();
             $table->string('branch_name')->nullable();
-            $table->unsignedBigInteger('address_id')->nullable();
+            $table->foreignId('address_id')->constrained()->nullable();
             $table->string('image')->nullable();
             $table->string('image_thumb')->nullable();
             $table->string('reception_phone')->nullable();
             // $table->string('name')->nullable();
             // $table->string('name')->nullable();
             // $table->string('name')->nullable();
+            $table->boolean('isActive')->default(0);
             $table->string('location_lat')->nullable();
             $table->string('location_lng')->nullable();
             $table->timestamps();

@@ -32,8 +32,6 @@ Route::group(['prefix' => 'registration','namespace' => 'API'],function(){
 
     Route::post('/hospital/store',[HospitalController::class,'store']);
 
-    // doctor essentials
-    Route::get('/doctor/essentials',[DoctorController::class,'getEssentials']);
     Route::post('/doctor/store',[DoctorController::class,'store']);
 
     // doctor essentials end
@@ -42,14 +40,26 @@ Route::group(['prefix' => 'registration','namespace' => 'API'],function(){
 
 Route::group(['namespace'=>'API'],function(){
 
-    Route::get('/departments',[DepartmentController::class,'index']);
-    Route::get('/departments/store',[DepartmentController::class,'store']);
+    Route::group(['prefix' => 'departments'],function(){
+        Route::get('/',[DepartmentController::class,'index']);
+        Route::get('/store',[DepartmentController::class,'store']);
+    });
 
-    Route::get('/designations', [DesignationController::class, 'index']);
-    Route::get('/designations/store', [DesignationController::class, 'store']);
+    Route::group(['prefix' => 'designations'],function(){
+        Route::get('/', [DesignationController::class, 'index']);
+        Route::get('/store', [DesignationController::class, 'store']);
+    });
 
-    Route::get('/expertises', [DesignationController::class, 'index']);
-    Route::get('/designations/store', [DesignationController::class, 'store']);
+
+    Route::group(['prefix' => 'expertises'],function(){
+        Route::get('/', [DesignationController::class, 'index']);
+        Route::get('/store', [DesignationController::class, 'store']);
+    });
+
+    Route::group(['prefix' => 'visit_hour'],function(){
+        Route::get('/', [DesignationController::class, 'index']);
+        Route::get('/store', [DesignationController::class, 'store']);
+    });
 });
 
 // Route::post('/hospital',[])
