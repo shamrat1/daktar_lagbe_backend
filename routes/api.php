@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\API\DepartmentController;
+use App\Http\Controllers\API\DesignationController;
 use App\Http\Controllers\API\HospitalController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\AddressController;
+use App\Http\Controllers\API\ExpertiseController;
 use App\Models\Department;
 use App\Http\Controllers\API\RegistrationController;
+use App\Http\Controllers\API\VisitFeeController;
+use App\Http\Controllers\API\VisitHourController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,13 +56,18 @@ Route::group(['namespace'=>'API'],function(){
 
 
     Route::group(['prefix' => 'expertises'],function(){
-        Route::get('/', [DesignationController::class, 'index']);
-        Route::post('/store', [DesignationController::class, 'store']);
+        Route::get('/', [ExpertiseController::class, 'index']);
+        Route::post('/store', [ExpertiseController::class, 'store']);
     });
 
     Route::group(['prefix' => 'visit_hour'],function(){
-        Route::get('/', [DesignationController::class, 'index']);
-        Route::post('/store', [DesignationController::class, 'store']);
+        Route::get('/', [VisitHourController::class, 'index']);
+        Route::post('/store', [VisitHourController::class, 'store']);
+    });
+
+    Route::group(['prefix' => 'visit_fee'],function(){
+        Route::get('/', [VisitFeeController::class, 'index']);
+        Route::post('/store', [VisitFeeController::class, 'store']);
     });
 });
 
