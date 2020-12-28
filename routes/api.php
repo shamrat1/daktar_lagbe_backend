@@ -6,6 +6,7 @@ use App\Http\Controllers\API\HospitalController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\AddressController;
 use App\Http\Controllers\API\ExpertiseController;
+use App\Http\Controllers\API\ClinicController;
 use App\Models\Department;
 use App\Http\Controllers\API\RegistrationController;
 use App\Http\Controllers\API\VisitFeeController;
