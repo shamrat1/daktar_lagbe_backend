@@ -42,23 +42,23 @@ Route::group(['namespace'=>'API'],function(){
 
     Route::group(['prefix' => 'departments'],function(){
         Route::get('/',[DepartmentController::class,'index']);
-        Route::get('/store',[DepartmentController::class,'store']);
+        Route::post('/store',[DepartmentController::class,'store']);
     });
 
     Route::group(['prefix' => 'designations'],function(){
         Route::get('/', [DesignationController::class, 'index']);
-        Route::get('/store', [DesignationController::class, 'store']);
+        Route::post('/store', [DesignationController::class, 'store']);
     });
 
 
     Route::group(['prefix' => 'expertises'],function(){
         Route::get('/', [DesignationController::class, 'index']);
-        Route::get('/store', [DesignationController::class, 'store']);
+        Route::post('/store', [DesignationController::class, 'store']);
     });
 
     Route::group(['prefix' => 'visit_hour'],function(){
         Route::get('/', [DesignationController::class, 'index']);
-        Route::get('/store', [DesignationController::class, 'store']);
+        Route::post('/store', [DesignationController::class, 'store']);
     });
 });
 

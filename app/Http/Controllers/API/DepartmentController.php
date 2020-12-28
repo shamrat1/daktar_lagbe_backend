@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Department\StoreRequest;
 use App\Models\Department;
 use App\Traits\JsonResponse;
+use Validator;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -16,8 +18,9 @@ class DepartmentController extends Controller
         return $this->responseBody("success","All departments are fetched.",$departments);
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        
+        $data = Department::create($request->validated());
+        return $this->responseBody("success","New Department Created",$data);
     }
 }
