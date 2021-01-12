@@ -1,4 +1,5 @@
 @extends('admin_layout.layouts.fixed')
+@section('title','All Departments')
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">

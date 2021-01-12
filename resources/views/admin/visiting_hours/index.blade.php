@@ -1,5 +1,5 @@
 @extends('admin_layout.layouts.fixed')
-@section('title','All Designations')
+@section('title','All Visiting Hours')
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -24,10 +24,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-7">
-                    @livewire('admin.designation')
+                    @livewire('admin.doctor.visiting-hours')
                 </div>
                 <div class="col">
-                    @livewire('admin.create-designation')
+                    @livewire('admin.doctor.create-visiting-hours')
                 </div>
             </div>
             

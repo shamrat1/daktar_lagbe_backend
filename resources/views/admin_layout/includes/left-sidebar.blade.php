@@ -30,286 +30,111 @@
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
+            </li>
+            <li class="nav-item has-treeview {{ isActive(['departments*','designations*','visiting_hours*','visiting_fees*']) }}">
+                <a href="#" class="nav-link {{ isActive(['departments*','designations*','visiting_hours*','visiting_fees*']) }}">
+                    <i class="nav-icon fas fa-user-md"></i>
+                    <p>
+                        Doctors Setup
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
                 <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                <li class="nav-item">
                         <a href="{{ route('admin.department.index')}}" class="nav-link {{ isActive('departments') }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Departments</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.designation.index') }}" class="nav-link {{ isActive('dashboard2') }}">
+                        <a href="{{ route('admin.designation.index') }}" class="nav-link {{ isActive('designations') }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Designations</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('dashboard3') }}">
+                        <a href="{{ route('admin.visitingHour.index') }}" class="nav-link {{ isActive('visiting_hours') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v3</p>
+                            <p>Visiting Hours</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.visitingFee.index') }}" class="nav-link {{ isActive('visiting_fees') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Visiting Fees</p>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item {{ isActive(['widget*']) }}">
-                <a href="#" class="nav-link {{ isActive('widgets') }}">
-                    <i class="nav-icon fas fa-th"></i>
+            <li class="nav-item has-treeview {{ isActive(['hospitals*']) }}">
+                <a href="#" class="nav-link {{ isActive(['hospitals*']) }}">
+                    <i class="nav-icon fas fa-plane"></i>
                     <p>
-                        Widgets
-                        <span class="right badge badge-danger">New</span>
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item has-treeview {{ isActive(['chart*']) }}">
-                <a href="#" class="nav-link {{ isActive(['chart*']) }}">
-                    <i class="nav-icon fas fa-chart-pie"></i>
-                    <p>
-                        Charts
+                        Hospitals Setup
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('chart/chartjs') }}">
+                        <a href="#" class="nav-link {{ isActive('departments') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>ChartJS</p>
+                            <p>Departments</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('chart/flot') }}">
+                        <a href="#" class="nav-link {{ isActive('designations') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Flot</p>
+                            <p>Designations</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('chart/inline-chart') }}">
+                        <a href="#" class="nav-link {{ isActive('visiting_hours') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Inline</p>
+                            <p>Visiting Hours</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link {{ isActive('visiting_hours') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Visiting Fees</p>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item has-treeview {{ isActive('ui*') }}">
-                <a href="#" class="nav-link {{ isActive('ui*') }}">
-                    <i class="nav-icon fas fa-tree"></i>
+            <li class="nav-item has-treeview {{ isActive(['clinic*']) }}">
+                <a href="#" class="nav-link {{ isActive(['clinic*']) }}">
+                    <i class="nav-icon fas fa-bed"></i>
                     <p>
-                        UI Elements
-                        <i class="fas fa-angle-left right"></i>
+                        Clinic Setup
+                        <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('ui/general') }}">
+                        <a href="#" class="nav-link {{ isActive('departments') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>General</p>
+                            <p>Departments</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('ui/icons') }}">
+                        <a href="#" class="nav-link {{ isActive('designations') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Icons</p>
+                            <p>Designations</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('ui/buttons') }}">
+                        <a href="#" class="nav-link {{ isActive('visiting_hours') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Buttons</p>
+                            <p>Visiting Hours</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('ui/sliders') }}">
+                        <a href="#" class="nav-link {{ isActive('visiting_hours') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Sliders</p>
+                            <p>Visiting Fees</p>
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item has-treeview {{ isActive('form*') }}">
-                <a href="#" class="nav-link {{ isActive('form*') }}">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p>
-                        Forms
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('form/general') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>General Elements</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('form/advance') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Advanced Elements</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('form/editor') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Editors</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item has-treeview {{ isActive(['table*']) }}">
-                <a href="#" class="nav-link {{ isActive(['table*']) }}">
-                    <i class="nav-icon fas fa-table"></i>
-                    <p>
-                        Tables
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('table/simple') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Simple Tables</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('table/data') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Data Tables</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-header">EXAMPLES</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link {{ isActive('calendar') }}">
-                    <i class="nav-icon fas fa-calendar-alt"></i>
-                    <p>
-                        Calendar
-                        <span class="badge badge-info right">2</span>
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item has-treeview {{ isActive(['mailbox*']) }}">
-                <a href="#" class="nav-link {{ isActive(['mailbox*']) }}">
-                    <i class="nav-icon far fa-envelope"></i>
-                    <p>
-                        Mailbox
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('mailbox/inbox') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Inbox</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('mailbox/compose') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Compose</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('mailbox/read') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Read</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item has-treeview {{ isActive(['page*']) }}">
-                <a href="#" class="nav-link {{ isActive(['page*']) }}">
-                    <i class="nav-icon fas fa-book"></i>
-                    <p>
-                        Pages
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('page/invoice') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Invoice</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('page/profile') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Profile</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('page/login') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Login</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('page/register') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Register</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('page/lockscreen') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Lockscreen</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item has-treeview {{ isActive(['extra*']) }}">
-                <a href="#" class="nav-link {{ isActive(['extra*']) }}">
-                    <i class="nav-icon far fa-plus-square"></i>
-                    <p>
-                        Extras
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('extra/404') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Error 404</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('extra/500') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Error 500</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('extra/blank') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Blank Page</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-header">MISCELLANEOUS</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-file"></i>
-                    <p>Documentation</p>
-                </a>
-            </li>
-            <li class="nav-header">LABELS</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-circle text-danger"></i>
-                    <p class="text">Important</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-circle text-warning"></i>
-                    <p>Warning</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-circle text-info"></i>
-                    <p>Informational</p>
-                </a>
             </li>
         </ul>
     </nav>
