@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\DesignationController;
+use App\Http\Livewire\Admin\Department as AdminDepartment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin_layout.dashboard.index');
 });
+Route::get('/departments',[DepartmentController::class,'index'])->name('admin.department.index');
+Route::get('/designations',[DesignationController::class,'index'])->name('admin.designation.index');
+
