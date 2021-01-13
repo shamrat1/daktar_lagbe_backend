@@ -24,7 +24,7 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     @yield('style')
-    @livewireStyles
+    @livewireStyles()
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -73,7 +73,7 @@
 @yield('plugin')
 
 @yield('script')
-@livewireScripts
+@livewireScripts()
 <script>
     $(".nano").nanoScroller({
         preventPageScrolling: true,
