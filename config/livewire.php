@@ -53,7 +53,7 @@ return [
     |
     */
 
-    'asset_url'  => url('/'),
+    'asset_url'  => env('APP_URL',"http://localhost:8888/daktar_lagbe_backend/public"),
 
     /*
     |--------------------------------------------------------------------------

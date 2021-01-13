@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin_layout.dashboard.index');
-});
+    dd(public_path(),url('/'));
+    // return view('admin_layout.dashboard.index');
+})->name('root');
 Route::get('/departments',[DepartmentController::class,'index'])->name('admin.department.index');
 Route::get('/designations',[DesignationController::class,'index'])->name('admin.designation.index');
 Route::get('/visiting_hours',[VisitingHourController::class,'index'])->name('admin.visitingHour.index');
