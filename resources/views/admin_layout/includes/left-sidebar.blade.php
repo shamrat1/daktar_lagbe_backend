@@ -136,6 +136,14 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item {{ isActive(['address*']) }}">
+                <a href="{{ route('admin.address.index') }}" class="nav-link {{ isActive(['address*']) }}">
+                    <i class="nav-icon fas fa-map"></i>
+                    <p>
+                        Address Setup
+                    </p>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
