@@ -3,12 +3,13 @@
 namespace App\Http\Livewire\Admin\Address;
 
 use App\Models\City;
+use App\Models\Division;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class CityCreate extends Component
 {
-    public $division_id, $name;
+    public $division_id, $name,$divisions;
 
     protected $rules = [
         'division_id' => 'required|numeric|exists:divisions,id',
@@ -17,6 +18,7 @@ class CityCreate extends Component
 
     public function render()
     {
+        $this->divisions = Division::get(['id','name']);
         return view('livewire.admin.address.city-create');
     }
 

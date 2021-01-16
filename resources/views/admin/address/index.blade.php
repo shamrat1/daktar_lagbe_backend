@@ -34,7 +34,11 @@
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-5 m-3">
                     <div class="card bg-white">
-                        <h1>H1 div</h1>
+                    <div class="card-body">
+                            @livewire('admin.address.city-create')
+                            <hr>
+                            @livewire('admin.address.cities')
+                        </div>
                     </div>
                 </div>
             </div>
