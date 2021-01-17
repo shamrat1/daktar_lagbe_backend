@@ -23,4 +23,8 @@
             @endforeach
         </tbody>
     </table>
+    <div class="col">
+    {{ $cities->links()}}
+
+    </div>
     </div>

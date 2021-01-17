@@ -7,15 +7,20 @@ use Livewire\Component;
 
 class Cities extends Component
 {
-    public $cities;
+    // public $cities;
 
     protected $listeners = [
-        'cityCreated' => '$refresh'
+        'cityCreated' => 'refresh'
     ];
 
     public function render()
     {
-        $this->cities = City::with('division')->get(['id','name','division_id']);
-        return view('livewire.admin.address.cities');
+        $cities = City::with('division')->select(['id','name','division_id'])->orderBy('id','desc')->paginate(15);
+        return view('livewire.admin.address.cities',['cities' => $cities]);
+    }
+
+    public function refresh()
+    {
+        # code...
     }
 }

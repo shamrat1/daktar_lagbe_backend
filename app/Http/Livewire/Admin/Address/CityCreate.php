@@ -31,6 +31,6 @@ class CityCreate extends Component
         ]);
         $this->division_id = "";
         $this->name = "";
-        $this->emitTo('admin.address.cites','cityCreated');
+        $this->emit('cityCreated');
     }
 }
