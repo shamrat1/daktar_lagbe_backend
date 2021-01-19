@@ -76,21 +76,21 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('departments') }}">
+                        <a href="{{ route('admin.services.index') }}" class="nav-link {{ isActive('services') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Departments</p>
+                            <p>Services</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('designations') }}">
+                        <a href="{{ route('admin.surgeries.index') }}" class="nav-link {{ isActive('surgeries') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Designations</p>
+                            <p>Surgeries</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('visiting_hours') }}">
+                        <a href="{{ route('admin.test_facilities.index') }}" class="nav-link {{ isActive('test_facilities') }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Visiting Hours</p>
+                            <p>Test Facilities</p>
                         </a>
                     </li>
                     <li class="nav-item">

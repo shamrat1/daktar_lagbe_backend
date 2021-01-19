@@ -74,11 +74,6 @@
 
 @yield('script')
 @livewireScripts()
-<script>
-    $(".nano").nanoScroller({
-        preventPageScrolling: true,
-    });
-</script>
 
 </body>
 </html>

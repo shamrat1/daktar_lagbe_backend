@@ -5,6 +5,9 @@ use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\VisitingHourController;
 use App\Http\Controllers\Admin\VisitingFeeController;
 use App\Http\Controllers\Admin\AddressController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SurgeriesController;
+use App\Http\Controllers\Admin\TestFacilityController;
 use App\Http\Livewire\Admin\Department as AdminDepartment;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +31,8 @@ Route::get('/designations',[DesignationController::class,'index'])->name('admin.
 Route::get('/visiting_hours',[VisitingHourController::class,'index'])->name('admin.visitingHour.index');
 Route::get('/visiting_fees',[VisitingFeeController::class,'index'])->name('admin.visitingFee.index');
 Route::get('/address',[AddressController::class,'index'])->name('admin.address.index');
+
+Route::get('/services',[ServiceController::class,'index'])->name('admin.services.index');
+Route::get('/surgeries',[SurgeriesController::class,'index'])->name('admin.surgeries.index');
+Route::get('/test/facilities',[TestFacilityController::class,'index'])->name('admin.test_facilities.index');
 
