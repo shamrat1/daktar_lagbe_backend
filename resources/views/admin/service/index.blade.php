@@ -22,14 +22,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8">
-                    @livewire('admin.department')
-                </div>
-                <div class="col-md-4">
-                    @livewire('admin.create-department')
-                </div>
-            </div>
+            @livewire('hospital.services')
         </div>
     </section>
 @endsection
