@@ -70,7 +70,7 @@
                 <a href="#" class="nav-link {{ isActive(['hospitals*','services*','surgeries*','test*']) }}">
                     <i class="nav-icon fas fa-plane"></i>
                     <p>
-                        Hospitals Setup
+                        Hospitals/Clinic Setup
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
@@ -95,7 +95,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item has-treeview {{ isActive(['clinic*']) }}">
+            {{-- <li class="nav-item has-treeview {{ isActive(['clinic*']) }}">
                 <a href="#" class="nav-link {{ isActive(['clinic*']) }}">
                     <i class="nav-icon fas fa-bed"></i>
                     <p>
@@ -129,7 +129,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="nav-item {{ isActive(['address*']) }}">
                 <a href="{{ route('admin.address.index') }}" class="nav-link {{ isActive(['address*']) }}">
                     <i class="nav-icon fas fa-map"></i>

@@ -15,4 +15,13 @@ trait JsonResponse
             'data' => $data
         ]);
     }
+
+    public function errorResponse($status = "Error", $message,$data = [])   
+    {
+        return response()->json([
+            'status' => $status,
+            'msg' => $message,
+            'data' => $data
+        ],422);
+    }
 }
