@@ -26,4 +26,19 @@ class Hospital extends Model
         return $this->hasOne(Address::class);
     }
 
+    public function services()
+    {
+        return $this->hasMany(Services::class);
+    }
+
+    public function surguries()
+    {
+        return $this->hasMany(Surgery::class);
+    }
+
+    public function test_facilities()
+    {
+        return $this->hasMany(TestFacilty::class);
+    }
+
 }

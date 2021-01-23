@@ -66,8 +66,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item has-treeview {{ isActive(['hospitals*']) }}">
-                <a href="#" class="nav-link {{ isActive(['hospitals*']) }}">
+            <li class="nav-item has-treeview {{ isActive(['hospitals*','services*','surgeries*','test*']) }}">
+                <a href="#" class="nav-link {{ isActive(['hospitals*','services*','surgeries*','test*']) }}">
                     <i class="nav-icon fas fa-plane"></i>
                     <p>
                         Hospitals Setup
@@ -88,15 +88,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.test_facilities.index') }}" class="nav-link {{ isActive('test_facilities') }}">
+                        <a href="{{ route('admin.test_facilities.index') }}" class="nav-link {{ isActive('test*') }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Test Facilities</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ isActive('visiting_hours') }}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Visiting Fees</p>
                         </a>
                     </li>
                 </ul>
