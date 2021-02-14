@@ -36,7 +36,11 @@ class ClinicStoreRequest extends FormRequest
             'image' => 'required|image',
             'reception_phone' => 'required|string',
             'location_lat' => 'required|string',
-            'location_lng' => 'required|string'
+            'location_lng' => 'required|string',
+            'services.*' => 'nullable|numeric',
+            'surgeries.*' => 'nullable|numeric',
+            'test_facilities.*' => 'nullable|numeric',
+
         ];
     }
 

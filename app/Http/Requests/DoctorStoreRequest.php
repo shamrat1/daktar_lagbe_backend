@@ -40,7 +40,9 @@ class DoctorStoreRequest extends FormRequest
             'phone' => 'nullable|numeric|min:11',
             'note' => 'nullable|numeric|min:11',
             'visiting_hours' => 'required',
-            'visiting_fees' => 'required'
+            'visiting_fees' => 'required',
+            'location_lat' => 'nullable|numeric',
+            'location_lng' => 'nullable|numeric',
         ];
     }
 
