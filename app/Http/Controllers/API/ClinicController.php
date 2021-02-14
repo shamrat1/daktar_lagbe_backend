@@ -7,19 +7,34 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ClinicStoreRequest;
 use App\Models\Address;
 use App\Models\Clinic;
+use Illuminate\Support\Facades\DB;
 
 class ClinicController extends Controller
 {
     public function store(ClinicStoreRequest $request)
     {
         $data = $request->validated();
-        $address = Address::create([
-            'division_id' => $request->division_id,
-            'city_id' => $request->city_id,
-            'address_line_1' => $request->address_line_1,
-            'address_line_2' => $request->address_line_2,
-        ]);
-        $data->merge('address_id',$address->id);
-        $hospital = Clinic::create();
+        try {
+            DB::beginTransaction();
+            $address = Address::create([
+                'division_id' => $request->division_id,
+                'city_id' => $request->city_id,
+                'address_line_1' => $request->address_line_1,
+                'address_line_2' => $request->address_line_2,
+            ]);
+            $data['address_id'] = $address->id;
+            $clinic = Clinic::create($data);
+            $clinic->test_facilites()->sync($request->test_facilites);
+            $clinic->services()->sync($request->services);
+            $clinic->surgeries()->sync($request->surgeries);
+
+            $clinic->load(['test_facilities','services','surgeries']);
+            DB::commit();
+        }catch (\Exception $e){
+            DB::rollBack();
+        }
+
+
+        return response()->json($clinic);
     }
 }
