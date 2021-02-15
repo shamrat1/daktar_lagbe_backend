@@ -37,4 +37,10 @@ class Doctor extends Model
     {
         return $this->belongsToMany(VisitHour::class);
     }
+
+    // Attributes start here
+    public function getCompleteAddressAttribute(){
+        $address = $this->address;
+        return $address->address_line_1 ?? ''.", ".$address->address_line_1 ?? ''.", ".$address->city->name.", ".$address->division->name;
+    }
 }

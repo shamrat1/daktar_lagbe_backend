@@ -68,7 +68,7 @@
             </li>
             <li class="nav-item has-treeview {{ isActive(['hospitals*','services*','surgeries*','test*']) }}">
                 <a href="#" class="nav-link {{ isActive(['hospitals*','services*','surgeries*','test*']) }}">
-                    <i class="nav-icon fas fa-plane"></i>
+                    <i class="nav-icon fas fa-hospital"></i>
                     <p>
                         Hospitals/Clinic Setup
                         <i class="right fas fa-angle-left"></i>
@@ -135,6 +135,30 @@
                     <i class="nav-icon fas fa-map"></i>
                     <p>
                         Address Setup
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item {{ isActive(['hospital*']) }}">
+                <a href="{{ route('admin.hospital.index') }}" class="nav-link {{ isActive(['address*']) }}">
+                    <i class="nav-icon fas fa-hospital-alt"></i>
+                    <p>
+                        Hospitals
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item {{ isActive(['clinic*']) }}">
+                <a href="{{ route('admin.clinic.index') }}" class="nav-link {{ isActive(['address*']) }}">
+                    <i class="nav-icon fas fa-file-medical"></i>
+                    <p>
+                        Clinics
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item {{ isActive(['doctor*']) }}">
+                <a href="{{ route('admin.doctor.index') }}" class="nav-link {{ isActive(['address*']) }}">
+                    <i class="nav-icon fas fa-briefcase-medical"></i>
+                    <p>
+                        Doctors
                     </p>
                 </a>
             </li>

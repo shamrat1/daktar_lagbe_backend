@@ -22,7 +22,7 @@ class Clinic extends Model
     ];
     public function address()
     {
-        return $this->hasOne(Address::class);
+        return $this->belongsTo(Address::class);
     }
 
     public function services()
@@ -38,5 +38,11 @@ class Clinic extends Model
     public function test_facilities()
     {
         return $this->belongsToMany(TestFacilty::class);
+    }
+
+    // Attributes start here
+    public function getCompleteAddressAttribute(){
+        $address = $this->address;
+        return $address->address_line_1.", ".$address->address_line_2.", ".$address->city->name.", ".$address->division->name;
     }
 }
