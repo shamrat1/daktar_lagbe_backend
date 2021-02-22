@@ -25,7 +25,7 @@ class HospitalController extends Controller
                 'address_line_1' => $request->address_line_1,
                 'address_line_2' => $request->address_line_2,
             ]);
-            $data->merge('address_id', $address->id);
+            $data['address_id'] = $address->id;
             $hospital = Hospital::create($data);
             if ($request->has('services')) {
                 $hospital->services()->sync($request->services);
