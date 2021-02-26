@@ -13,6 +13,11 @@ class Doctor extends Model
         'address_id','name','name_bn','bmdc_code','department_id','expertise_id','designation_id','extra_fee','phone','note'
     ];
 
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+    
     public function department()
     {
         return $this->hasOne(Department::class,'department_id');
