@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class HospitalController extends Controller
 {
     public function index(){
-        $hospitals = Hospital::latest()->paginate(20);
+        $hospitals = Hospital::with('address')->latest()->paginate(20);
         return view('admin.hospital.index',compact('hospitals'));
     }
 
