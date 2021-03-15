@@ -43,6 +43,7 @@ class DoctorStoreRequest extends FormRequest
             'visiting_fees' => 'required',
             'location_lat' => 'nullable|numeric',
             'location_lng' => 'nullable|numeric',
+            'image' => 'nullable|string'
         ];
     }
 

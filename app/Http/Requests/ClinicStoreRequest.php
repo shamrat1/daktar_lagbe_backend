@@ -33,7 +33,7 @@ class ClinicStoreRequest extends FormRequest
             'city_id' => 'required|numeric',
             'address_line_1' => 'required|string|max:191',
             'address_line_2' => 'nullable|string|max:191',
-            'image' => 'required|image',
+            'image' => 'required|string',
             'reception_phone' => 'required|string',
             'location_lat' => 'required|string',
             'location_lng' => 'required|string',
