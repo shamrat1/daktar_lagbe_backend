@@ -7,16 +7,31 @@ use App\Http\Requests\HospitalStoreRequest;
 use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Models\Hospital;
+use App\Traits\ImageOperations;
 use App\Traits\JsonResponse;
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Image;
 
 class HospitalController extends Controller
 {
-    use JsonResponse;
+    use JsonResponse, ImageOperations;
     
     public function store(HospitalStoreRequest $request)
     {
         $data = $request->validated();
+        try{
+            $image = $this->saveImage(
+                "Hospitals",
+                Image::make($request->image),
+                'hospital',
+                false,
+                'other'
+            );
+        }catch (Exception $e){
+            $image = 'default.jpg';
+        }
+        $data['image'] = $image;
         try {
             DB::beginTransaction();
             $address = Address::create([

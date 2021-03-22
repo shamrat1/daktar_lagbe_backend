@@ -7,13 +7,30 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ClinicStoreRequest;
 use App\Models\Address;
 use App\Models\Clinic;
+use App\Traits\ImageOperations;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Image;
+use Exception;
 
 class ClinicController extends Controller
 {
+    use ImageOperations;
+    
     public function store(ClinicStoreRequest $request)
     {
         $data = $request->validated();
+        try{
+            $image = $this->saveImage(
+                "Hospitals",
+                Image::make($request->image),
+                'hospital',
+                false,
+                'other'
+            );
+        }catch (Exception $e){
+            $image = 'default.jpg';
+        }
+        $data['image'] = $image;
         try {
             DB::beginTransaction();
             $address = Address::create([

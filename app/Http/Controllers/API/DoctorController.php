@@ -12,13 +12,15 @@ use App\Models\Doctor;
 use App\Models\Expertise;
 use App\Models\VisitFee;
 use App\Models\VisitHour;
+use App\Traits\ImageOperations;
 use App\Traits\JsonResponse;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Image;
 
 class DoctorController extends Controller
 {
-    use JsonResponse;
+    use JsonResponse, ImageOperations;
 
     public function store(DoctorStoreRequest $request)
     {
@@ -33,7 +35,18 @@ class DoctorController extends Controller
         ]);
 
         $data = $request->validated();
-
+        try{
+            $image = $this->saveImage(
+                "Hospitals",
+                Image::make($request->image),
+                'hospital',
+                false,
+                'other'
+            );
+        }catch (Exception $e){
+            $image = 'default.jpg';
+        }
+        $data['image'] = $image;
         $address = Address::create([
             'division_id' => $request->division_id,
             'city_id' => $request->city_id,
