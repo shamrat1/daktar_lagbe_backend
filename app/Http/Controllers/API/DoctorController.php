@@ -16,7 +16,7 @@ use App\Traits\ImageOperations;
 use App\Traits\JsonResponse;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Intervention\Image\Image;
+use Intervention\Image\Facades\Image;
 
 class DoctorController extends Controller
 {

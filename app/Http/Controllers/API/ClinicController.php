@@ -9,7 +9,7 @@ use App\Models\Address;
 use App\Models\Clinic;
 use App\Traits\ImageOperations;
 use Illuminate\Support\Facades\DB;
-use Intervention\Image\Image;
+use Intervention\Image\Facades\Image;
 use Exception;
 
 class ClinicController extends Controller
