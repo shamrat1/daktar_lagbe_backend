@@ -27,17 +27,17 @@ class Clinic extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Services::class);
+        return $this->belongsToMany(Services::class,'clinic_service');
     }
 
     public function surguries()
     {
-        return $this->belongsToMany(Surgery::class);
+        return $this->belongsToMany(Surgery::class,'clinic_surgery');
     }
 
     public function test_facilities()
     {
-        return $this->belongsToMany(TestFacilty::class);
+        return $this->belongsToMany(TestFacilty::class,'clinic_test_facility');
     }
 
     // Attributes start here
