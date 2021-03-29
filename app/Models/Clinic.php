@@ -12,7 +12,7 @@ class Clinic extends Model
     protected $fillable = [
         'name',
         'name_bn',
-        'branch_name',
+        // 'branch_name',
         'address_id',
         'image',
         'image_thumb',
@@ -27,17 +27,17 @@ class Clinic extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Services::class,'clinic_service','service_id','clinic_id');
+        return $this->belongsToMany(Services::class,'clinic_service','clinic_id','service_id');
     }
 
-    public function surguries()
+    public function surgeries()
     {
-        return $this->belongsToMany(Surgery::class,'clinic_surgery','surgery_id','clinic_id');
+        return $this->belongsToMany(Surgery::class,'clinic_surgery','clinic_id','surgery_id');
     }
 
     public function test_facilities()
     {
-        return $this->belongsToMany(TestFacilty::class,'clinic_test_facility','test_facility_id','clinic_id');
+        return $this->belongsToMany(TestFacilty::class,'clinic_test_facility','clinic_id','test_facility_id');
     }
 
     // Attributes start here

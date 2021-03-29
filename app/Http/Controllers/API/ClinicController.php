@@ -41,14 +41,17 @@ class ClinicController extends Controller
             ]);
             $data['address_id'] = $address->id;
             $clinic = Clinic::create($data);
-            $clinic->test_facilites()->sync($request->test_facilites);
-            $clinic->services()->sync($request->services);
-            $clinic->surgeries()->sync($request->surgeries);
+            // dd(explode(",",$request->test_facilities),$request->test_facilities);
+            $clinic->test_facilities()->sync(explode(",",$request->test_facilities));
+            $clinic->services()->sync(explode(',',$request->services));
+            $clinic->surgeries()->sync(explode(',',$request->surgeries));
 
             $clinic->load(['test_facilities','services','surgeries']);
             DB::commit();
         }catch (\Exception $e){
             DB::rollBack();
+            dd($e);
+            return response()->json($e,422);
         }
 
 

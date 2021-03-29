@@ -24,22 +24,12 @@ class DoctorController extends Controller
 
     public function store(DoctorStoreRequest $request)
     {
-        $this->validate($request,[
-            'division_id' => 'required',
-            'city_id' => 'required',
-            'address_line_1' => 'required|string',
-            'address_line_2' => 'nullable|string',
-            'name' => 'required|string|min:4',
-            'visiting_hours' => 'required',
-            'visiting_fees' => 'required',
-        ]);
-
         $data = $request->validated();
         try{
             $image = $this->saveImage(
-                "Hospitals",
+                "doctors",
                 Image::make($request->image),
-                'hospital',
+                'doctor',
                 false,
                 'other'
             );

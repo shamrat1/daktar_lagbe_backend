@@ -11,6 +11,7 @@ class TestFacilityController extends Controller
     {
         return view('admin.test_facility.index');
     }
+    
     public function store()
     {
         # code...

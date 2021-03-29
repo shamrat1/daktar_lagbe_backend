@@ -43,17 +43,18 @@ class HospitalController extends Controller
             $data['address_id'] = $address->id;
             $hospital = Hospital::create($data);
             if ($request->has('services')) {
-                $hospital->services()->sync($request->services);
+                $hospital->services()->sync(is_array($request->services) ? $request->services : explode(",",$request->services));
             }
             if ($request->has('surgeries')) {
-                $hospital->surgeries()->sync($request->surgeries);
+                $hospital->surgeries()->sync(is_array($request->surgeries) ? $request->surgeries : explode(",",$request->surgeries));
             }
-            if ($request->has('test_facilites')) {
-                $hospital->test_facilities()->sync($request->test_facilities);
+            if ($request->has('test_facilities')) {
+                $hospital->test_facilities()->sync(is_array($request->test_facilities) ? $request->test_facilities : explode(",",$request->test_facilities));
             }
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
+            dd($e);
             return $this->errorResponse("error","Failed to add Hospital. Try Again!",[$e]);
         }
         return $this->responseBody("success","New Hospital Created Successfully.",$hospital);

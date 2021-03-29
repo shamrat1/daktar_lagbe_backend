@@ -28,17 +28,17 @@ class Hospital extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Services::class,'hospital_service','service_id','hospital_id');
+        return $this->belongsToMany(Services::class,'hospital_service','hospital_id','service_id');
     }
 
-    public function surguries()
+    public function surgeries()
     {
-        return $this->belongsToMany(Surgery::class,'hospital_surgery','surgery_id','hospital_id');
+        return $this->belongsToMany(Surgery::class,'hospital_surgery','hospital_id','surgery_id');
     }
 
     public function test_facilities()
     {
-        return $this->belongsToMany(TestFacilty::class,'hospital_test_facility','test_facility_id','hospital_id');
+        return $this->belongsToMany(TestFacilty::class,'hospital_test_facility','hospital_id','test_facility_id');
     }
 
     // Attributes start here
