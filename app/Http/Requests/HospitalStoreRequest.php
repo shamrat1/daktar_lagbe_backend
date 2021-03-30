@@ -52,6 +52,7 @@ class HospitalStoreRequest extends FormRequest
             'services.*' => 'nullable|numeric',
             'surgeries.*' => 'nullable|numeric',
             'test_facilities.*' => 'nullable|numeric',
+            'note' => 'nullable|string'
         ];
     }
 

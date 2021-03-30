@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\VisitingHourController;
 use App\Http\Controllers\Admin\VisitingFeeController;
 use App\Http\Controllers\Admin\AddressController;
+use App\Http\Controllers\Admin\ExpertiseController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SurgeriesController;
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PagesController::class,'index'])->name('root');
 
 Route::get('/departments',[DepartmentController::class,'index'])->name('admin.department.index');
+Route::get('/expertises',[ExpertiseController::class,'index'])->name('admin.expertise.index');
 Route::get('/designations',[DesignationController::class,'index'])->name('admin.designation.index');
 Route::get('/visiting_hours',[VisitingHourController::class,'index'])->name('admin.visitingHour.index');
 Route::get('/visiting_fees',[VisitingFeeController::class,'index'])->name('admin.visitingFee.index');
