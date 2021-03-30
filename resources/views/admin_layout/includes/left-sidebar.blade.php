@@ -31,8 +31,8 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item has-treeview {{ isActive(['departments*','designations*','visiting_hours*','visiting_fees*']) }}">
-                <a href="#" class="nav-link {{ isActive(['departments*','designations*','visiting_hours*','visiting_fees*']) }}">
+            <li class="nav-item has-treeview {{ isActive(['departments*','expertises*','designations*','visiting_hours*','visiting_fees*']) }}">
+                <a href="#" class="nav-link {{ isActive(['departments*','expertises*','designations*','visiting_hours*','visiting_fees*']) }}">
                     <i class="nav-icon fas fa-user-md"></i>
                     <p>
                         Doctors Setup
@@ -50,6 +50,12 @@
                         <a href="{{ route('admin.designation.index') }}" class="nav-link {{ isActive('designations') }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Designations</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.expertise.index') }}" class="nav-link {{ isActive('expertises') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Expertize</p>
                         </a>
                     </li>
                     <li class="nav-item">
