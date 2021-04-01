@@ -72,8 +72,8 @@ Route::group(['namespace'=>'API'],function(){
     });
 
 
-    Route::get('/helper/division','AddressController@getDivisions');
-    Route::get('/helper/city/{id}','AddressController@getCities');
+    Route::get('/helper/division',[AddressController::class,'getDivisions']);
+    Route::get('/helper/city/{id}',[AddressController::class,'getCities']);
 });
 
 // Route::post('/hospital',[])
