@@ -70,6 +70,10 @@ Route::group(['namespace'=>'API'],function(){
         Route::get('/', [VisitFeeController::class, 'index']);
         Route::post('/store', [VisitFeeController::class, 'store']);
     });
+
+
+    Route::get('/helper/division','AddressController@getDivisions');
+    Route::get('/helper/city/{id}','AddressController@getCities');
 });
 
 // Route::post('/hospital',[])
