@@ -7,17 +7,27 @@ use Livewire\Component;
 
 class Department extends Component
 {
-    public $departments;
+    // public $departments;
     protected $listeners = ['departmentCreated'];
 
     public function render()
     {
-        $this->departments = ModelsDepartment::get();
-        return view('livewire.admin.department');
+        $departments = ModelsDepartment::latest()->paginate(20);
+        return view('livewire.admin.department',compact('departments'));
     }
 
     public function departmentCreated()
     {
         # code...
+    }
+
+    public function edit($id)
+    {
+        $this->emit('editDepartment',$id);
+    }
+
+    public function delete($id)
+    {
+        ModelsDepartment::findOrFail($id)->delete();
     }
 }

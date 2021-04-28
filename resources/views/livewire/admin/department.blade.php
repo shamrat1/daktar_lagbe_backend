@@ -17,7 +17,12 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->name_bn }}</td>
                         <td>{{ Str::limit($item->description,60) }}</td>
-                        <td><button><i class="fa fa-edit"></i></button></td>
+                        <td>
+                            <div class="row">
+                                <button wire:click="edit({{$item->id}})" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
+                                <button wire:click="delete({{$item->id}})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
