@@ -17,7 +17,7 @@
                 @error('description') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="">Description</label>
+                <label for="">Description(BN)</label>
                 <textarea wire:model="descriptionBn" class="form-control" cols="30" rows="3"></textarea>
                 @error('descriptionBn') <span class="error">{{ $message }}</span> @enderror
             </div>

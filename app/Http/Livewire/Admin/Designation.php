@@ -7,17 +7,22 @@ use Livewire\Component;
 
 class Designation extends Component
 {
-    public $designations;
-    public  $listeners = ["designationCreated"];
+    // public $designations;
+    protected  $listeners = ["designationCreated"];
 
     public function render()
     {
-        $this->designations = ModelsDesignation::latest()->get();    
-        return view('livewire.admin.designation');
+        $designations = ModelsDesignation::latest()->paginate(20);    
+        return view('livewire.admin.designation',compact('designations'));
     }
 
     public function designationCreated()
     {
         # code...
+    }
+
+    public function edit($id)
+    {
+        $this->emit('editDesignation',$id);
     }
 }
