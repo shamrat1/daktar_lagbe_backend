@@ -10,7 +10,22 @@ class Doctor extends Model
     use HasFactory;
 
     protected $fillable = [
-        'address_id','name','name_bn','bmdc_code','department_id','expertise_id','designation_id','extra_fee','phone','note'
+        'address_id',
+        'name',
+        'name_bn',
+        'bmdc_code',
+        'department_id',
+        'expertise_id',
+        'designation_id',
+        'extra_fee',
+        'phone',
+        'note',
+        'user_id',
+        'title',
+        'nid_passport_no',
+        'date_of_birth',
+        'image',
+        'gender'
     ];
 
     public function address()
