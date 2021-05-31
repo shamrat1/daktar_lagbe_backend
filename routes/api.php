@@ -29,22 +29,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['prefix' => 'registration','namespace' => 'API'],function(){
-    // address helper
-    Route::get('/address',[AddressController::class,'getAddressFields']);
-
-    Route::get('/helper/{type}', [RegistrationController::class, 'helper']);
-
-    Route::post('/hospital/store',[HospitalController::class,'store']);
-
-    Route::post('/doctor/store',[DoctorController::class,'store']);
-
-    // doctor essentials end
-    Route::post('/clinic/store',[ClinicController::class,'store']);
-});
 
 Route::group(['namespace'=>'API'],function(){
 
+    Route::group(['prefix' => 'registration'],function(){
+        // address helper
+        Route::get('/address',[AddressController::class,'getAddressFields']);
+
+        Route::get('/helper/{type}', [RegistrationController::class, 'helper']);
+
+        Route::post('/hospital/store',[HospitalController::class,'store']);
+
+        Route::post('/doctor/store',[DoctorController::class,'store']);
+
+        // doctor essentials end
+        Route::post('/clinic/store',[ClinicController::class,'store']);
+    });
+    
     Route::group(['prefix' => 'departments'],function(){
         Route::get('/',[DepartmentController::class,'index']);
         Route::post('/store',[DepartmentController::class,'store']);
