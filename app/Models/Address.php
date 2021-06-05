@@ -10,7 +10,7 @@ class Address extends Model
     use HasFactory;
 
     protected $fillable = [
-        'division_id','city_id','address_line_1','address_line_2'
+        'division_id','city_id','address_line_1','address_line_2','area_id'
     ];
 
     public function division(){

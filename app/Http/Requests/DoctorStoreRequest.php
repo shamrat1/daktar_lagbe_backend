@@ -32,6 +32,8 @@ class DoctorStoreRequest extends FormRequest
             'address_line_2' => 'nullable|string',
             'name' => 'required|string|min:4',
             'name_bn' => 'nullable|string|min:4',
+            'chamber_name' => 'required|string|min:4',
+            'chamber_name_bn' => 'nullable|string|min:4',
             'title' => 'nullable|string',
             'nid_passport_no' => 'nullable|string',
             'gender' => 'nullable|string',
