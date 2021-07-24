@@ -7,9 +7,12 @@ use App\Http\Controllers\Admin\VisitingFeeController;
 use App\Http\Controllers\Admin\AddressController;
 use App\Http\Controllers\Admin\ExpertiseController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SurgeriesController;
 use App\Http\Controllers\Admin\TestFacilityController;
+use App\Http\Controllers\Admin\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +31,31 @@ Route::get('/auto',function(){
     Auth::login(User::first(),true);
 });
 Route::group(['middleware'=>'auth'],function(){
+
+    Route::group(['prefix' => 'users'],function(){
+        
+        Route::group(['prefix' => 'all','as' => 'user.'],function(){
+            Route::get('/',[UserController::class,'index'])->name('index');
+            Route::post('/',[UserController::class,'store'])->name('store');
+            Route::get('/show/{id}',[UserController::class,'show'])->name('show');
+            Route::get('/edit/{id}',[UserController::class,'edit'])->name('edit');
+            Route::put('/update/{id}',[UserController::class,'update'])->name('update');
+            Route::delete('/delete/{id}',[UserController::class,'delete'])->name('delete');
+        });
+    
+        Route::group(['prefix' => 'roles','as' => 'role.'],function(){
+            Route::get('/',[RoleController::class,'index'])->name('index');
+            Route::post('/store',[RoleController::class,'store'])->name('store');
+            Route::delete('/delete/{id}',[RoleController::class,'delete'])->name('delete');
+        });
+    
+        Route::group(['prefix' => 'permissions','as' => 'permission.'],function(){
+            Route::get('/',[PermissionController::class,'index'])->name('index');
+            Route::post('/store',[PermissionController::class,'store'])->name('store');
+            Route::delete('/delete/{id}',[PermissionController::class,'delete'])->name('delete');
+        });
+    });
+
     Route::get('/',[PagesController::class,'index'])->name('root');
 
     Route::get('/departments',[DepartmentController::class,'index'])->name('admin.department.index');
