@@ -1,4 +1,4 @@
-@extends('admin.layouts.fixed')
+@extends('admin_layout.layouts.fixed')
 
 @section('title','Roles')
 
@@ -14,7 +14,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('root') }}">Home</a></li>
                     <li class="breadcrumb-item active">Roles</li>
                 </ol>
             </div><!-- /.col -->
@@ -130,7 +130,7 @@
 <!-- /.content -->
 @endsection
 
-@push('js')
+@push('script')
     <script>
         $(document).on('click','#editBtn',function(){
             let id = $(this).data('id');

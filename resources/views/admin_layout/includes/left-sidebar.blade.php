@@ -31,6 +31,35 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item has-treeview {{ isActive(['permissions*','roles*','users*']) }}">
+                <a href="#" class="nav-link {{ isActive(['permissions*','roles*','users*']) }}">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>
+                        User Management
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                        <a href="{{ route('admin.user.index')}}" class="nav-link {{ isActive('users/all*') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Users</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.role.index') }}" class="nav-link {{ isActive('users/roles*') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Roles</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.permission.index') }}" class="nav-link {{ isActive('users/permissions*') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Permissions</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item has-treeview {{ isActive(['departments*','expertises*','designations*','visiting_hours*','visiting_fees*']) }}">
                 <a href="#" class="nav-link {{ isActive(['departments*','expertises*','designations*','visiting_hours*','visiting_fees*']) }}">
                     <i class="nav-icon fas fa-user-md"></i>

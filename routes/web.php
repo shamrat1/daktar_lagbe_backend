@@ -32,8 +32,8 @@ Route::get('/auto',function(){
 });
 Route::group(['middleware'=>'auth'],function(){
 
-    Route::group(['prefix' => 'users'],function(){
-        
+    Route::group(['prefix' => 'users','as' => 'admin.'],function(){
+
         Route::group(['prefix' => 'all','as' => 'user.'],function(){
             Route::get('/',[UserController::class,'index'])->name('index');
             Route::post('/',[UserController::class,'store'])->name('store');
