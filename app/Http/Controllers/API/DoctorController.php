@@ -29,6 +29,7 @@ class DoctorController extends Controller
 
     public function store(Request $request)
     {
+        
         $data = $request->all();
         try{
             $image = $this->saveImage(

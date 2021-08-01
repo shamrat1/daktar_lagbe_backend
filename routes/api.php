@@ -38,12 +38,12 @@ Route::group(['namespace'=>'API'],function(){
 
         Route::get('/helper/{type}', [RegistrationController::class, 'helper']);
 
-        Route::post('/hospital/store',[HospitalController::class,'store']);
+        Route::post('/hospital',[HospitalController::class,'store']);
 
-        Route::post('/doctor/store',[DoctorController::class,'store']);
+        Route::post('/doctor',[DoctorController::class,'store']);
 
         // doctor essentials end
-        Route::post('/clinic/store',[ClinicController::class,'store']);
+        Route::post('/clinic',[ClinicController::class,'store']);
     });
     
     Route::group(['prefix' => 'departments'],function(){
