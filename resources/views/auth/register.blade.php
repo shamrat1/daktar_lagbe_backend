@@ -1,59 +1,67 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@extends('auth.auth-layout')
+@section('title','Register')
+@section('content')
+    <div class="container-fluid h-100">
+        <div class="d-flex justify-content-center h-100" style="margin-top: 50px;margin-bottom: 100px;">
+            <div class="col-4">
+                <div class="card rounded shadow mt-5">
+                    <div class="card-body">
+                        <div class="col-12 text-center">
+                            <img src="https://picsum.photos/seed/picsum/100/100" width="100px" height="100px" class="rounded-circle" alt="">
+                            <h4>Daktar Lagbe</h4>
+                        </div>
+                        
+                        <hr>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <div class="form-group my-1">
+                                <label for="">Name</label>
+                                <input type="text" name="name" placeholder="Your Name" class="form-control" value="{{ old('name') }}" >
+                                @error('name') <small class="text-danger">{{$message}}</small> @enderror
+                            </div>
+                            <div class="form-group my-1">
+                                <label for="">Email</label>
+                                <input type="email" name="email" placeholder="email@example.com" class="form-control" value="{{ old('email') }}">
+                                @error('email') <small class="text-danger">{{$message}}</small> @else <small class="text-muted">Email Must Be Unique</small> @enderror
+                            </div>
+                            <div class="form-group my-1">
+                                <label for="">Mobile No</label>
+                                <input type="text" placeholder="Ex. 01234567891" name="mobile" class="form-control" value="{{ old('mobile') }}">
+                                @error('mobile') <small class="text-danger">{{$message}}</small> @else <small class="text-muted">Mobile No Must Be Unique</small> @enderror
+                            </div>
+                            <div class="form-group my-1">
+                                <label for="">Password</label>
+                                <input type="password" name="password" class="form-control" value="{{ old('password') }}">
+                                @error('password') <small class="text-danger">{{$message}}</small> @enderror
+                            </div>
+                            <div class="form-group my-1">
+                                <label for="">Confirm Password</label>
+                                <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
+                                @error('password_confirmation') <small class="text-danger">{{$message}}</small> @enderror
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-sm btn-success">Sign Up</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row justify-content-between mt-3" style="font-size: 11px;">
+                            <div class="col-6 pull-left">
+                                <a href="#" class="text-muted">Forgot Password?</a>
+                            </div>
+                            <div class="col-6 text-muted">
+                                <div class="text-right">
+                                    Already Registered? <a href="{{ route('login') }}" class="text-muted">Sign In</a>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                    </div>
+                </div>
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </div>
+@endsection
