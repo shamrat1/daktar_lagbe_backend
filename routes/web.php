@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/auto',function(){
     Auth::login(User::first(),true);
 });
+Route::get('/',[PagesController::class,'index'])->name('root');
+
 Route::group(['middleware'=>'auth'],function(){
 
     Route::group(['prefix' => 'users','as' => 'admin.'],function(){
@@ -55,8 +57,6 @@ Route::group(['middleware'=>'auth'],function(){
             Route::delete('/delete/{id}',[PermissionController::class,'delete'])->name('delete');
         });
     });
-
-    Route::get('/',[PagesController::class,'index'])->name('root');
 
     Route::get('/departments',[DepartmentController::class,'index'])->name('admin.department.index');
     Route::get('/expertises',[ExpertiseController::class,'index'])->name('admin.expertise.index');
