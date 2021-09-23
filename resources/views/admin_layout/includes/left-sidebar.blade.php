@@ -60,6 +60,7 @@
                     </li>
                 </ul>
             </li>
+            
             <li class="nav-item has-treeview {{ isActive(['departments*','expertises*','designations*','visiting_hours*','visiting_fees*']) }}">
                 <a href="#" class="nav-link {{ isActive(['departments*','expertises*','designations*','visiting_hours*','visiting_fees*']) }}">
                     <i class="nav-icon fas fa-user-md"></i>
@@ -196,6 +197,24 @@
                         Doctors
                     </p>
                 </a>
+            </li>
+            <li class="nav-item has-treeview {{ isActive(['setting*']) }}">
+                <a href="#" class="nav-link {{ isActive(['setting*']) }}">
+                    <i class="nav-icon fas fa-cog"></i>
+                    <p>
+                        Application Setting
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                        <a href="{{ route('admin.setting.page.index')}}" class="nav-link {{ isActive('users/all*') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Pages</p>
+                        </a>
+                    </li>
+                    
+                </ul>
             </li>
         </ul>
     </nav>
