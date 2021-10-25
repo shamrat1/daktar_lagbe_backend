@@ -22,8 +22,8 @@ trait SMS
             
         $url = 'https://smsplus.sslwireless.com/api/v3/send-sms';
             $params = [
-                "api_token" => "Daktar Lagbe-35591786-df9f-4981-b59c-6a4efb77e2fb",
-                "sid" => " DAKTARLAGBEBRANDAPI ",
+                "api_token" => "fb025038-e1fe-488a-a062-1643b31457e5",
+                "sid" => "DAKTARLAGBEBRANDAPI",
                 "msisdn" => $to,
                 "sms" => $message,
                 "csms_id" => uniqid("", false)
@@ -31,7 +31,7 @@ trait SMS
 
         try {
             $res = $this->callApi($url,json_encode($params));
-            return true;
+            return $res;
         } catch (Exception $e) {
             return $e->getMessage();
         }

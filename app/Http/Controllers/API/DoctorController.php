@@ -18,6 +18,7 @@ use App\Models\VisitFee;
 use App\Models\VisitHour;
 use App\Traits\ImageOperations;
 use App\Traits\JsonResponse;
+use App\Traits\SMS;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -25,10 +26,11 @@ use Intervention\Image\Facades\Image;
 
 class DoctorController extends Controller
 {
-    use JsonResponse, ImageOperations;
+    use JsonResponse, ImageOperations, SMS;
 
     public function store(Request $request)
     {
+        
         $data = $request->all();
         try{
             $image = $this->saveImage(
@@ -54,16 +56,16 @@ class DoctorController extends Controller
             // $data['address_id'] = $address->id;
             // create User
 
-            // $user = User::create([
-            //     'name' => $request->name,
-            //     'email' => $request->email,
-            //     'password' => Hash::make($request->password),
-            //     'mobile' => $request->phone,
-            // ]);
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'mobile' => $request->phone,
+            ]);
 
             // // create Doctor
-
-            // $doctor = Doctor::create($data);
+            $data["user_id"] = $user->id;
+            $doctor = Doctor::create($data);
 
             // create qualifications
 
