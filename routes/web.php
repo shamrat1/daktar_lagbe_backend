@@ -56,15 +56,14 @@ Route::group(['middleware'=>'auth'],function(){
             Route::post('/store',[PermissionController::class,'store'])->name('store');
             Route::delete('/delete/{id}',[PermissionController::class,'delete'])->name('delete');
         });
-
-        Route::group(["prefix" => "setting","as" => "setting."],function(){
-            Route::group(["prefix" => "pages","as" => "page."],function(){
-                Route::get("/",[PagesController::class,"allPages"])->name("index");
-                Route::get("/modify/{slug?}",[PagesController::class,"modifyPage"])->name("modify");
-            });
-        });
     });
 
+    Route::group(["prefix" => "setting","as" => "admin.setting."],function(){
+        Route::group(["prefix" => "pages","as" => "page."],function(){
+            Route::get("/",[PagesController::class,"allPages"])->name("index");
+            Route::get("/modify/{slug?}",[PagesController::class,"modifyPage"])->name("modify");
+        });
+    });
     Route::get('/departments',[DepartmentController::class,'index'])->name('admin.department.index');
     Route::get('/expertises',[ExpertiseController::class,'index'])->name('admin.expertise.index');
     Route::get('/designations',[DesignationController::class,'index'])->name('admin.designation.index');

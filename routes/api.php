@@ -5,6 +5,7 @@ use App\Http\Controllers\API\DesignationController;
 use App\Http\Controllers\API\HospitalController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\AddressController;
+use App\Http\Controllers\API\AuthenticationController;
 use App\Http\Controllers\API\ExpertiseController;
 use App\Http\Controllers\API\ClinicController;
 use App\Models\Department;
@@ -31,6 +32,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group(['namespace'=>'API'],function(){
+
+    Route::post('/login',[AuthenticationController::class,'login']);
+    Route::post('/forgot',[AuthenticationController::class,'forgot']);
+
+    Route::group(['prefix' => 'otp'],function(){
+        Route::post('/verify',[AuthenticationController::class,'verify']);
+        Route::post('/resend',[AuthenticationController::class,'resend']);
+    });
 
     Route::group(['prefix' => 'registration'],function(){
         // address helper

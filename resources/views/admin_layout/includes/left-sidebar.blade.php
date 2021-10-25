@@ -208,9 +208,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                        <a href="{{ route('admin.setting.page.index')}}" class="nav-link {{ isActive('users/all*') }}">
+                        <a href="{{ route('admin.setting.page.index')}}" class="nav-link {{ isActive(['page']) }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Pages</p>
+                            <p>Pages {{ isActive(['page']) }} {{ isActive(['setting*']) }}</p>
                         </a>
                     </li>
                     

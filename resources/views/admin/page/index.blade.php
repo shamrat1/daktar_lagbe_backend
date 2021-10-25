@@ -24,6 +24,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 card rounded shadow-sm">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Pages ({{ $pages->total() }})
+                        </div>
+                        <div class="card-tools">
+                            <a href="{{ route('admin.setting.page.modify') }}" class="btn btn-primary btn-sm ">Create</a>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <table class="table table-bordered">
                             <thead>
