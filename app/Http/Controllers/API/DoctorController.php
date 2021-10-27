@@ -30,8 +30,21 @@ class DoctorController extends Controller
 
     public function store(Request $request)
     {
-        
+        $this->validate($request,[
+            "name" => "required|string",
+            "email" => "required|email|unique:users",
+            "mobile" => "required|numeric|regex:/^01[0-9]{9}$/|unique:users",
+            "password" => "required|string|min:6|max:16",
+            'name_bn' => "nullable|string",
+            'title' => "nullable|string",
+            'gender' => "nullable|string",
+            'nid_passport_no' => "required|string",
+            'bmdc_code' => "required|string|unique:doctors",
+            'image' => "nullable|image",
+        ]);
+
         $data = $request->all();
+
         try{
             $image = $this->saveImage(
                 "doctors",
@@ -60,11 +73,14 @@ class DoctorController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'mobile' => $request->phone,
+                'mobile' => $request->mobile,
+                "otp" => "123456",
+                "otp_generated_at" => now(),
             ]);
 
             // // create Doctor
             $data["user_id"] = $user->id;
+            $data["phone"] = $user->mobile;
             $doctor = Doctor::create($data);
 
             // create qualifications
@@ -149,10 +165,9 @@ class DoctorController extends Controller
                 'status' => 'failed',
                 'msg' => 'failed to add doctor',
                 'data' => $e->getMessage()
-            ]);
+            ],422);
         }
         
-
         return $this->responseBody("success","Doctor Created SuccessFully",[
             "doctor" => $doctor,
             "otp" => "123456",

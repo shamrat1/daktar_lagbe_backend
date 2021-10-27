@@ -18,10 +18,10 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('name_bn')->nullable();
             $table->string('bmdc_code')->unique()->nullable();
-            $table->foreignId('department_id')->constrained()->onDelete('cascade')->nullable();
-            $table->foreignId('expertise_id')->constrained()->onDelete('cascade')->nullable();
-            $table->foreignId('designation_id')->constrained()->onDelete('cascade')->nullable();
-            $table->foreignId('address_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('department_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('expertise_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('designation_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('address_id')->nullable()->constrained()->onDelete('cascade');
             // $table->unsignedBigInteger('visit_hour_id')->nullable();
             // $table->unsignedBigInteger('visit_fee_id')->nullable();
             $table->string('extra_fee')->nullable();
